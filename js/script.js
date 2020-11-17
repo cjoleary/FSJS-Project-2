@@ -4,6 +4,18 @@ FSJS Project 2 - Data Pagination and Filtering
 */
 
 /*
+Create and insert/append the elements needed for the search component
+*/
+
+const header = document.querySelector('HEADER');
+header.insertAdjacentHTML( 'beforeend', `
+   <label for="search" class="student-search">
+      <input id="search" placeholder="Search by name...">
+      <button id="submit" type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+   </label>
+`);
+
+/*
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
 
@@ -32,7 +44,6 @@ function showPage( list, page ) {
 }
 
 /*
-Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 
@@ -51,7 +62,7 @@ function addPagination( list ) {
 
    // give first button the active class on page load
    let buttons = document.querySelectorAll('button');
-   buttons[0].classList.add('active');
+   buttons[1].classList.add('active');
 
    // page button event listener
    linkList.addEventListener( 'click', (e) => {
@@ -67,7 +78,6 @@ function addPagination( list ) {
       }
    });
 }
-
 
 // Call functions
 showPage(data, 1);
