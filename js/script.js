@@ -101,6 +101,7 @@ function searchStudents ( list ) {
          }
       }
 
+      // if no matches display error message, else display matches
       if ( matches.length === 0 ) {
          studentList.innerHTML = ' ';
          studentList.insertAdjacentHTML( 'beforeend', `
@@ -125,6 +126,7 @@ function searchStudents ( list ) {
          }
       }
 
+      // if no matches display error message, else display matches
       if ( matches.length === 0 ) {
          studentList.innerHTML = ' ';
          studentList.insertAdjacentHTML( 'beforeend', `
