@@ -10,7 +10,7 @@ Create and insert/append the elements needed for the search component
 const header = document.querySelector('HEADER');
 header.insertAdjacentHTML( 'beforeend', `
    <label for="search" class="student-search">
-      <input id="search" type="search" placeholder="Search by name...">
+      <input id="search" type="text" placeholder="Search by name...">
       <button id="submit" type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
    </label>
 `);
