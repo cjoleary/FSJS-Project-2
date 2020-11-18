@@ -61,16 +61,16 @@ function addPagination( list ) {
    }
 
    // give first button the active class on page load
-   let buttons = document.querySelectorAll('button');
-   buttons[1].classList.add('active');
+   let pageBtns = linkList.querySelectorAll('BUTTON');
+   pageBtns[0].classList.add('active');
 
    // page button event listener
    linkList.addEventListener( 'click', (e) => {
       // check to make sure the element clicked is a button
       if ( e.target.tagName === 'BUTTON' ) {
-         for ( let i = 0; i < buttons.length; i++ ) {
+         for ( let i = 0; i < pageBtns.length; i++ ) {
             // remove active class from other buttons, add active class to button clicked
-            buttons[i].classList = '';
+            pageBtns[i].classList = '';
             e.target.classList.add('active');
          }
          let pageNum = e.target.textContent;
