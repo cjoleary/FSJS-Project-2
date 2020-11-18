@@ -119,6 +119,7 @@ function searchStudents ( list ) {
    // search button event handler
    searchBtn.addEventListener( 'click', (e) => {
       matches = []; // clear the matches array
+      console.log(searchInput);
       for ( let i = 0; i < list.length; i++ ) {
          const firstName = list[i].name.first.toLowerCase();
          const lastName = list[i].name.last.toLowerCase();
