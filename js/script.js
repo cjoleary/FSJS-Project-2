@@ -19,10 +19,11 @@ header.insertAdjacentHTML( 'beforeend', `
 This function will create and insert/append the elements needed to display a "page" of nine students
 */
 
+const studentList = document.querySelector('.student-list');
+
 function showPage( list, page ) {
    let indexStart = (page * 9) - 9;
    let indexEnd = page * 9; 
-   let studentList = document.querySelector('.student-list');
    studentList.innerHTML = '';
 
    for ( let i = 0; i < list.length; i++ ) {
@@ -79,6 +80,65 @@ function addPagination( list ) {
    });
 }
 
+/*
+This function will search for student names based on the search bar user input and return matches
+*/
+
+function searchStudents ( list ) {
+   let matches = []; // store matches here
+   const searchBar = document.querySelector('#search');
+   const searchInput = searchBar.value.toLowerCase();
+   const searchBtn = document.querySelector('#submit'); 
+
+   // search bar event handler
+   searchBar.addEventListener( 'keyup', (e) => {
+      matches = []; // clear the matches array
+      for ( let i = 0; i < list.length; i++ ) {
+         const firstName = list[i].name.first.toLowerCase();
+         const lastName = list[i].name.last.toLowerCase();
+         if ( firstName.includes( searchInput ) || lastName.includes( searchInput ) ) {
+            matches.push( list[i] ); // add matches to matches array
+         }
+      }
+
+      if ( matches.length === 0 ) {
+         studentList.innerHTML = ' ';
+         studentList.insertAdjacentHTML( 'beforeend', `
+            <h1>No results were found</h1>
+         `);
+         addPagination(matches);
+      } else {
+         showPage(matches, 1);
+         addPagination(matches);
+      }
+      
+   });
+
+   // search button event handler
+   searchBtn.addEventListener( 'click', (e) => {
+      matches = []; // clear the matches array
+      for ( let i = 0; i < list.length; i++ ) {
+         const firstName = list[i].name.first.toLowerCase();
+         const lastName = list[i].name.last.toLowerCase();
+         if ( firstName.includes( searchInput ) || lastName.includes( searchInput ) ) {
+            matches.push( list[i] ); // add matches to matches array
+         }
+      }
+
+      if ( matches.length === 0 ) {
+         studentList.innerHTML = ' ';
+         studentList.insertAdjacentHTML( 'beforeend', `
+            <h1>No results were found</h1>
+         `);
+         addPagination(matches);
+      } else {
+         showPage(matches, 1);
+         addPagination(matches);
+      }
+   });
+}
+
 // Call functions
 showPage(data, 1);
 addPagination(data);
+searchStudents(data);
