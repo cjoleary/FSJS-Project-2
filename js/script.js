@@ -100,6 +100,7 @@ function searchStudents ( list ) {
          if ( firstName.includes( searchInput ) || lastName.includes( searchInput ) ) {
             matches.push( list[i] ); // add matches to matches array
          }
+         return matches;
       }
 
       // if no matches display error message, else display matches
