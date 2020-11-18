@@ -10,7 +10,7 @@ Create and insert/append the elements needed for the search component
 const header = document.querySelector('HEADER');
 header.insertAdjacentHTML( 'beforeend', `
    <label for="search" class="student-search">
-      <input id="search" placeholder="Search by name...">
+      <input id="search" type="search" placeholder="Search by name...">
       <button id="submit" type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
    </label>
 `);
@@ -86,13 +86,14 @@ This function will search for student names based on the search bar user input a
 
 function searchStudents ( list ) {
    let matches = []; // store matches here
-   const searchBar = document.querySelector('#search');
+   const searchBar = document.getElementById('search');
    const searchInput = searchBar.value.toLowerCase();
-   const searchBtn = document.querySelector('#submit'); 
+   const searchBtn = document.getElementById('submit'); 
 
    // search bar event handler
    searchBar.addEventListener( 'keyup', (e) => {
       matches = []; // clear the matches array
+      console.log(searchInput);
       for ( let i = 0; i < list.length; i++ ) {
          const firstName = list[i].name.first.toLowerCase();
          const lastName = list[i].name.last.toLowerCase();
