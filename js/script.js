@@ -31,7 +31,7 @@ function showPage( list, page ) {
          studentList.innerHTML += `
             <li class="student-item cf">
                <div class="student-details">
-                  <img class="avatar" src="${list[i].picture.thumbnail}" alt="Profile Picture">
+                  <img class="avatar" src="${list[i].picture.large}" alt="Profile Picture">
                   <h3>${list[i].name.first} ${list[i].name.last}</h3>
                   <span class="email">${list[i].email}</span>
                </div>
@@ -63,7 +63,9 @@ function addPagination( list ) {
 
    // give first button the active class on page load
    let pageBtns = linkList.querySelectorAll('BUTTON');
-   pageBtns[0].classList.add('active');
+   if ( pageBtns.length > 0 ) {
+      pageBtns[0].classList.add('active');
+   }
 
    // page button event listener
    linkList.addEventListener( 'click', (e) => {
