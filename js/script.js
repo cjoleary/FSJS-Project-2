@@ -98,7 +98,6 @@ function searchStudents ( list ) {
          const lastName = list[i].name.last.toLowerCase();
          if ( firstName.includes( searchInput ) || lastName.includes( searchInput ) ) {
             matches.push( list[i] ); // add matches to matches array
-            console.log(matches);
          }
       }
 
