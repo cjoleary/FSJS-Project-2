@@ -87,20 +87,18 @@ This function will search for student names based on the search bar user input a
 function searchStudents ( list ) {
    let matches = []; // store matches here
    const searchBar = document.getElementById('search');
-   const searchInput = searchBar.value.toLowerCase();
    const searchBtn = document.getElementById('submit'); 
 
    // search bar event handler
    searchBar.addEventListener( 'keyup', (e) => {
       matches = []; // clear the matches array
-      console.log(searchInput);
+      const searchInput = searchBar.value.toLowerCase();
       for ( let i = 0; i < list.length; i++ ) {
          const firstName = list[i].name.first.toLowerCase();
          const lastName = list[i].name.last.toLowerCase();
          if ( firstName.includes( searchInput ) || lastName.includes( searchInput ) ) {
             matches.push( list[i] ); // add matches to matches array
          }
-         return matches;
       }
 
       // if no matches display error message, else display matches
@@ -120,7 +118,7 @@ function searchStudents ( list ) {
    // search button event handler
    searchBtn.addEventListener( 'click', (e) => {
       matches = []; // clear the matches array
-      console.log(searchInput);
+      const searchInput = searchBar.value.toLowerCase();
       for ( let i = 0; i < list.length; i++ ) {
          const firstName = list[i].name.first.toLowerCase();
          const lastName = list[i].name.last.toLowerCase();
